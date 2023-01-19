@@ -1,0 +1,5 @@
+.TransactionPage {
+    display: flex;
+    flex-direction: column;
+}
+

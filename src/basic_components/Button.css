@@ -1,0 +1,30 @@
+.Button {
+    min-width: 200px;
+    min-height: 40px;
+    border-radius: 7px;
+    align-self: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 19px;
+    letter-spacing: 1px;
+    ;
+    cursor: pointer;
+    border: none;
+    transition: all 0.5s;
+    user-select: none;
+
+}
+
+.Button:enabled {
+    background-color: #171C27;
+    color: #ffffff;
+
+}
+
+.Button:enabled:hover {
+    transform: scale(1.07);
+    transition: all 0.5s;
+}

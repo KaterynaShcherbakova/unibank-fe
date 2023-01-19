@@ -1,0 +1,54 @@
+.Header {
+    max-height: 40px;
+    background-color: #171C27;
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    min-width: 100vw;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 4px;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.header_begin {
+    display: flex;
+    flex-direction: row;
+   
+}
+.header_end {
+    display: flex;
+    flex-direction: row;
+    align-self:center;
+    margin-right: 10px;
+}
+
+.header_username{
+    font-family: 'Merriweather', serif;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: 100;
+    margin-right: 12px;
+    font-size: 14px;
+    align-self: center;
+    cursor:pointer;
+
+}
+
+.header_company {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 6px;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.header_icon {
+    color: white;
+    align-self: center;
+    justify-self: flex-end;
+    font-weight: 100;
+    cursor:pointer;
+}

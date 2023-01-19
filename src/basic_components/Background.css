@@ -1,0 +1,9 @@
+.background{
+    background-position: 100% 100%;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    position: fixed;
+    z-index: -5;
+}

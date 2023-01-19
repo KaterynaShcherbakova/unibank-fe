@@ -1,38 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=Merriweather&family=Quicksand:wght@500;600;700&family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500&family=KoHo:wght@500&family=Merriweather&family=Quicksand:wght@500;600;700&family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@1&family=Karla:wght@400;500&family=KoHo:wght@500&family=Merriweather&family=Quicksand:wght@500;600;700&family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+
+
 .App {
+  --white: #FFFFFF;
+  --black: #000000;
+  --darkblue: #171c27;
+  --blue: #52a2c4;
+  --lightbeige: #E5EBEC;
+  --grey: #758392;
+  --green: #6B7B81;
+
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+*:focus {
+  outline: none;
 }

@@ -1,0 +1,13 @@
+.auth_page_fullscreen {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+}
+
+.AuthPage {
+    background-position: 50% 50%;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+   
+}

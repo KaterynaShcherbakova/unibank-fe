@@ -1,0 +1,49 @@
+.Card {
+    min-width: 270px;
+    min-height: 160px;
+    background-color: #E5EBEC;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card_logo {
+    align-self: flex-start;
+
+}
+
+.card_number,
+.card_ddl,
+.card_money {
+    font-family: 'KoHo';
+    font-size: 16px;
+    color: black;
+    letter-spacing: 2px;
+    align-self: flex-end;
+    margin-right: 1vw
+}
+
+.card_money {
+    margin-bottom: 2px;
+}
+
+.card_ddl {
+    margin-right: 4vw;
+
+}
+
+.card_end {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.card_company {
+    font-family: 'Fanwood Text';
+    margin-left: 10px;
+    user-select: none;
+}

@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import './basic_components/Hexagon.css'
+import { Card } from './basic_components/Card';
+import './basic_components/Card.css';
+import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
+
+import AuthPage from './pages/AuthPage';
+import { MainPage } from './pages/MainPage';
+import { TransactionPage } from './pages/TransactionPage';
+import './pages/TransactionPage.css';
+
+import { PiggyBankPage } from './pages/PiggyBankPage';
+import './pages/MainPage.css';
+import { ErrorMessage } from './basic_components/ErrorMessage';
+import './basic_components/ErrorMessage.css';
+import { Background } from './basic_components/Background';
+import './basic_components/Background.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes >
+          <Route path="/login" element={<AuthPage />} />
+          <Route path='/transactions' element={<TransactionPage />} />
+          <Route path="/savings" element={<PiggyBankPage />} />
+          <Route exact path="/" element={<MainPage />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <ErrorMessage /> */}
+      
+
+    </>
+  )
 }
 
 export default App;
