@@ -1,0 +1,69 @@
+{
+    "navigation": {
+        "transactions": "Transactions",
+        "piggy_bank": "Piggy Bank",
+        "history": "History",
+        "shared_wallet": "Shared Wallet",
+        "settings": "Settings",
+        "blueprints": "Blueprints",
+        "help": "Help"
+    },
+    "auth": {
+        "login": "Log In",
+        "signup": "Sign Up",
+        "name": "Name",
+        "surname": "Surname",
+        "patronymic": "Patronymic",
+        "email": "Email",
+        "password": "Password",
+        "confirm_pass": "Confirm password",
+        "enter": "Enter",
+        "join": "Join",
+        "quest_signup": "Already have an account? Log in",
+        "quest_login": "Don't have an account? Sign up"
+    },
+    "error": {
+        "empty_name": "Name can not be empty!",
+        "empty_surname": "Surname can not be empty!",
+        "empty_patronymic": "Patronymic can not be empty!",
+        "empty_email": "Email can not be empty!",
+        "empty_passsword": "Password can not be empty!",
+        "empty_confirm_pass": "Please, confirm password!",
+        "not_valid_name": "Name is not valid!",
+        "not_valid_surname": "Surname is not valid!",
+        "not_valid_patronymic": "Patronymic is not valid!",
+        "not_valid_email": "Email is not valid!",
+        "not_valid_password": "Password must contain no symbols, 1 digit, 1 upper and 1 lower letter!",
+        "too_short_passsword": "Password must be at least 8 charachters long!",
+        "not_valid_confirm_pass": "Passwords do not match!"
+    },
+    "transactions": {
+        "templates": "Templates",
+        "recent": "Recent",
+        "popular": "Popular",
+        "choose_card": "Choose card",
+        "receiver": "Receiver",
+        "amount": "Amount",
+        "message": "Message",
+        "message_placeholder": "Payment purpose",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "message": {
+        "clipboard": "Card number was copied"
+    },
+
+    "savings":{
+        "piggy_bank":"Piggybank",
+        "goal":"Goal",
+        "change_goal":"Change goal",
+        "feed_piggy":"Feed piggy",
+        "take_money_out":"Take money out",
+        "empty_piggy":"Empty piggybank",
+        "choose_card":"Choose card",
+        "piggy_settings":"Piggy's settings",
+        "percent":"Percent from payments",
+        "round_to":"Round to",
+        "deactivate":"Temporary deactivate"
+    }
+}

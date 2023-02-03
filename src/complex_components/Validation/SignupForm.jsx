@@ -1,17 +1,16 @@
 import { useState, React, useEffect } from 'react'
-import InputField from '../../basic_components/InputField'
-import '../../basic_components/InputField.css'
-import { Button } from '../../basic_components/Button'
-import '../../basic_components/Button.css'
+import InputField from '../../basic_components/input/InputField'
+import { Button } from '../../basic_components/button/Button'
 import { BsCheckCircleFill } from 'react-icons/bs'
 import { BsFillXCircleFill } from 'react-icons/bs'
-
+import { useTranslation } from 'react-i18next'
 const NAME_REGEX = /^[\p{L}][\p{L} '-]{1,32}$/u
 // /^[A-Za-z][A-Za-z -]{2,45}$/u;
 ///^[\p{L} ,.'-]+$/u
 const EMAIL_REGEX = /^[\w.]+@[\w]+\.[\w]+$/;
 const PWD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 export const SignupForm = (props) => {
+    const { t } = useTranslation();
     const [user, setUser] = useState({
         firstName: '',
         lastName: '',
@@ -22,15 +21,15 @@ export const SignupForm = (props) => {
     })
 
     const [error, setError] = useState({
-        firstName: 'Name can not be empty!',
-        lastName: 'Surname can not be empty!',
-        patronymic: 'Patronymic can not be empty!',
-        email: 'Email can not be empty!',
-        password: 'Password can not be empty!',
-        confirmPass: 'Please, confirm password!'
+        firstName: `${t("error.empty_name")}`,
+        lastName: `${t("error.empty_surname")}`,
+        patronymic: `${t("error.empty_patronymic")}`,
+        email: `${t("error.empty_email")}`,
+        password: `${t("error.empty_password")}`,
+        confirmPass: `${t("error.empty_confirm_pass")}`
     })
 
-  
+
     const [input, setInput] = useState({
         firstName: false,
         lastName: false,
@@ -111,14 +110,14 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    firstName: 'Name can not be empty!'
+                    firstName: `${t("error.empty_name")}`
                 });
 
             }
             else if (!NAME_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    firstName: 'Name is not valid!'
+                    firstName: `${t("error.not_valid_name")}`
                 });
             }
             else {
@@ -133,13 +132,13 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    lastName: 'Surname can not be empty!'
+                    lastName: `${t("error.empty_surname")}`
                 });
             }
             else if (!NAME_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    lastName: 'Surname is not valid!'
+                    lastName: `${t("error.not_valid_surname")}`
                 });
             }
             else {
@@ -154,14 +153,14 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    patronymic: 'Patronymic can not be empty!'
+                    patronymic: `${t("error.empty_patronymic")}`
                 });
 
             }
             else if (!NAME_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    patronymic: 'Parronymic is not valid!'
+                    patronymic: `${t("error.not_valid_patronymic")}`
                 });
             }
             else {
@@ -175,14 +174,14 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    email: 'Email can not be empty!'
+                    email: `${t("error.empty_email")}`
                 });
 
             }
             else if (!EMAIL_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    email: 'Email is not valid!'
+                    email: `${t("error.not_valid_email")}`
                 });
             }
             else {
@@ -198,19 +197,19 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    password: 'Password can not be empty!'
+                    password: `${t("error.empty_password")}`
                 });
             }
             else if (e.target.value.length < 8) {
                 setError({
                     ...error,
-                    password: 'Password must be at least 8 charachters long!'
+                    password: `${t("error.too_short_passsword")}`
                 });
             }
             else if (!PWD_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    password: 'Password must contain no symbols, 1 digit, 1 upper and 1 lower letter!'
+                    password: `${t("error.not_valid_password")}`
                 });
 
             }
@@ -227,7 +226,7 @@ export const SignupForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    confirmPass: 'Please, confirm password!'
+                    confirmPass: `${t("error.empty_confirm_pass")}`
                 });
 
 
@@ -235,7 +234,7 @@ export const SignupForm = (props) => {
             else if (e.target.value != user.password) {
                 setError({
                     ...error,
-                    confirmPass: 'Passwords do not match!'
+                    confirmPass: `${t("error.not_valid_confirm_pass")}`
                 });
 
 
@@ -265,13 +264,13 @@ export const SignupForm = (props) => {
             <div className='container_signup_form'>
                 <form onSubmit={handleSubmit}
                     className='signup'>
-                    <div className='auth_form_title'>Sign Up</div>
+                    <div className='auth_form_title'>{t("auth.signup")}</div>
                     <div className='auth_input_fields'>
                         <div className="input_success_div">
                             <InputField
                                 name='firstName'
                                 type='text'
-                                label='Name:'
+                                label={`${t("auth.name")}:`}
                                 placeholder=''
                                 className={`login_input ${error.firstName && input.firstName ? "form_input_error" : "form_input_success"}}`}
                                 value={user.firstName}
@@ -282,7 +281,7 @@ export const SignupForm = (props) => {
                             />
                             {(error.firstName && input.firstName) &&
                                 <div className="form_message input_error" >
-                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.firstName)} onMouseEnter={() => props.messageFunc(true, error.firstName)} />
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.firstName, 'error')} onMouseEnter={() => props.messageFunc(true, error.firstName, 'error')} />
                                 </div>}
 
                             {(!error.firstName && input.firstName) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
@@ -291,7 +290,7 @@ export const SignupForm = (props) => {
                             <InputField
                                 name='lastName'
                                 type='text'
-                                label='Surname:'
+                                label={`${t("auth.surname")}:`}
                                 placeholder=''
                                 className={`login_input ${error.lastName && input.lastName ? "form_input_error" : "form_input_success"}}`}
                                 value={user.lastName}
@@ -300,9 +299,9 @@ export const SignupForm = (props) => {
                                 onChange={(e) => handleChange(e)}
 
                             />
-                            {(error.lastName && input.lastName) && 
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.lastName)} onMouseEnter={() => props.messageFunc(true, error.lastName)} />
+                            {(error.lastName && input.lastName) &&
+                                <div className="form_message input_error">
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.lastName, 'error')} onMouseEnter={() => props.messageFunc(true, error.lastName, 'error')} />
                                 </div>}
 
                             {(!error.lastName && input.lastName) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
@@ -312,7 +311,7 @@ export const SignupForm = (props) => {
                             <InputField
                                 name='patronymic'
                                 type='text'
-                                label='Patronymic:'
+                                label={`${t("auth.patronymic")}:`}
                                 placeholder=''
                                 className={`login_input ${error.patronymic && input.patronymic ? "form_input_error" : "form_input_success"}}`}
                                 value={user.patronymic}
@@ -322,8 +321,8 @@ export const SignupForm = (props) => {
 
                             />
                             {(error.patronymic && input.patronymic) &&
-                             <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.patronymic)} onMouseEnter={() => props.messageFunc(true, error.patronymic)} />
+                                <div className="form_message input_error">
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.patronymic, 'error')} onMouseEnter={() => props.messageFunc(true, error.patronymic, 'error')} />
                                 </div>}
 
                             {(!error.patronymic && input.patronymic) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
@@ -332,7 +331,7 @@ export const SignupForm = (props) => {
                             <InputField
                                 name='email'
                                 type='email'
-                                label='Email:'
+                                label={`${t("auth.email")}:`}
                                 placeholder=''
                                 className={`login_input ${error.email && input.email ? "form_input_error" : "form_input_success"}}`}
                                 value={user.email}
@@ -342,9 +341,9 @@ export const SignupForm = (props) => {
 
                             />
 
-                            {(error.email && input.email) && 
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.email)} onMouseEnter={() => props.messageFunc(true, error.email)}/>
+                            {(error.email && input.email) &&
+                                <div className="form_message input_error">
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.email, 'error')} onMouseEnter={() => props.messageFunc(true, error.email, 'error')} />
                                 </div>}
 
                             {(!error.email && input.email) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
@@ -353,7 +352,7 @@ export const SignupForm = (props) => {
                             <InputField
                                 name='password'
                                 type='password'
-                                label='Password:'
+                                label={`${t("auth.password")}:`}
                                 placeholder=''
                                 className={`login_input ${error.password && input.patronymic ? "form_input_error" : "form_input_success"}}`}
                                 value={user.password}
@@ -363,9 +362,9 @@ export const SignupForm = (props) => {
 
                             />
 
-                            {(error.password && input.password) && 
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.password)} onMouseEnter={() => props.messageFunc(true, error.password)}/>
+                            {(error.password && input.password) &&
+                                <div className="form_message input_error">
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.password, 'error')} onMouseEnter={() => props.messageFunc(true, error.password, 'error')} />
                                 </div>}
 
                             {(!error.password && input.password) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
@@ -374,7 +373,7 @@ export const SignupForm = (props) => {
                             <InputField
                                 name='confirmPass'
                                 type='password'
-                                label=' Confirm password:'
+                                label={`${t("auth.confirm_pass")}:`}
                                 placeholder=''
                                 className={`login_input ${error.confirmPass && input.confirmPass ? "form_input_error" : "form_input_success"}}`}
                                 value={user.confirmPass}
@@ -384,15 +383,16 @@ export const SignupForm = (props) => {
 
                             />
 
-                            {(error.confirmPass && input.confirmPass) && 
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.confirmPass)} onMouseEnter={() => props.messageFunc(true, error.confirmPass)}/>
+                            {(error.confirmPass && input.confirmPass) &&
+                                <div className="form_message input_error">
+                                    <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.confirmPass, 'error')} onMouseEnter={() => props.messageFunc(true, error.confirmPass, 'error')} />
                                 </div>}
 
                             {(!error.confirmPass && input.confirmPass) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
                         </div>
                         <Button
-                            buttonName='Join'
+                            height={40}
+                            buttonName={t("auth.join")}
                             disabled={!formValid}
                             className='auth_form_button'
                             type='submit'
@@ -403,7 +403,7 @@ export const SignupForm = (props) => {
                         <p className="auth_form_question"
                             onClick={() => props.onFormSwitch('login')}
                         >
-                            Already have an account? Log in
+                            {t("auth.quest_signup")}
                         </p>
 
                     </div>

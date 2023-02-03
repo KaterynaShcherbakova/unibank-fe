@@ -1,0 +1,41 @@
+.choose_card_block {
+    background-color: #171C27;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 10px 6px 4px;
+    max-width: 55vw;
+    margin: auto;
+    min-height: 70px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 10px;
+
+}
+
+
+
+.choose_card_scrollbar {
+    display: flex;
+    gap: 17px;
+    margin: auto;
+
+
+}
+
+
+.choose_card_block::-webkit-scrollbar {
+    height: 0.65em;
+    max-height: 20px;
+    transition: background-color 1s !important;
+
+}
+
+
+
+.choose_card_block::-webkit-scrollbar-thumb {
+    background-color: #6B7B81;
+    border-radius: 10px;
+    transition: background-color 1s !important;
+
+}

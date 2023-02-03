@@ -1,24 +1,26 @@
-import React from 'react'
-import { Background } from '../basic_components/Background';
-import '../basic_components/Background.css';
-import { CardMenu } from '../complex_components/CardMenu/CardMenu';
-import '../complex_components/CardMenu/CardMenu.css';
-
-import { Header } from '../complex_components/Header/Header';
-import '../complex_components/Header/Header.css';
-
-import { HexagonBox } from '../complex_components/HexagonBox/HexagonBox';
-import '../complex_components/HexagonBox/HexagonBox.css';
+import { React, useState } from 'react'
+import { Background } from '../basic_components/background/Background';
+import { CardMenu } from '../complex_components/card_menu/CardMenu';
+import { HexagonBox } from '../complex_components/hexagon_box/HexagonBox';
 
 
-export const MainPage = () => {
+
+export const MainPage = (props) => {
+    const [currentCardNum, setCurrentCardNum] = useState('');
+    const [currentCard, setCurrentCard] = useState(null);
+
+
     return (
         <div className='MainPage'>
             <Background page='main' />
-            <Header user='Kateryna Shcherbakova' />
-            <CardMenu />
+            <CardMenu
+                setCurrentCard={setCurrentCard}
+                currentCard={currentCard}
+                currentCardNum={currentCardNum}
+                setCurrentCardNum={setCurrentCardNum}
+                messageFunc={props.messageFunc} />
             <HexagonBox />
-           
+
         </div>
     )
 }

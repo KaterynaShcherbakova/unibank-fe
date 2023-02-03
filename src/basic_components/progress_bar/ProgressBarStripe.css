@@ -1,0 +1,22 @@
+.ProgressBarStripe {
+    min-width: 150px;
+    align-self: center;
+    margin-top:auto;
+    margin-bottom: 3%;
+
+}
+
+.ProgressBarStripe .progress {
+    background-color: #171C27;
+    border-radius: 20px;
+    min-width: 60vh;
+    max-width: 62vh;
+
+
+}
+
+.ProgressBarStripe .progress-bar-striped {
+    background-color: rgba(107, 123, 129, 1)!important;
+    border-radius: 20px;
+
+}

@@ -1,0 +1,138 @@
+.Card,
+.flip-card-back {
+
+    background-color: #E5EBEC;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 27/16;
+    cursor: pointer;
+    transition: all 1s;
+    user-select: none;
+    border: 3px solid transparent;
+
+
+}
+
+.Card-hover:hover {
+    transform: scale(1.09);
+    transition: transform 1s;
+   
+
+}
+
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card_logo {
+    align-self: flex-start;
+
+}
+
+.card_number,
+.card_ddl {
+    font-weight: 700;
+}
+
+.card_number,
+.card_ddl,
+.card_money {
+    font-family: 'KoHo';
+    font-size: 16px;
+    color: black;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.card_money {
+    margin-bottom: 2px;
+}
+
+.card_ddl {
+    margin-right: 40px;
+
+}
+
+.card_end {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.card_company {
+    font-family: 'Fanwood Text';
+    margin-left: 10px;
+    user-select: none;
+}
+
+
+.flip-card {
+    background-color: transparent;
+    aspect-ratio: 27/16;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+/* .flip-card-hover .flip-card-inner { */
+.do-flip {
+    transform: rotateX(180deg) translate(0%, -2.5%);
+}
+
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
+.card_back_black_stripe {
+    width: 100%;
+    background-color: black;
+    margin-top: 5%;
+}
+
+.card_cvv {
+    color: #E5EBEC;
+    margin-left: 5%;
+    font-family: 'KoHo', serif;
+    font-weight: 300;
+}
+
+.card_back_cvv_box {
+    align-items: center;
+    justify-content: center;
+    background-color: #758392;
+    width: 22%;
+    display: flex;
+    align-self: flex-end;
+}
+
+.cvv_text {
+    font-family: 'Merriweather';
+    font-weight: 700;
+    font-size: 16px;
+    color: black;
+    margin-right: 3%;
+}
+
+.cvv_box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 5%;
+    margin-right: 5%;
+}

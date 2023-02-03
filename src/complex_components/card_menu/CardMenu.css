@@ -1,0 +1,46 @@
+.CardMenu_wrapper {
+    /* position: absolute; */
+    height: calc(100vh - 60px);
+
+}
+
+
+
+.cardmenu_scrollbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: calc(100% - 15px);
+    width: 340px;
+    background-color: #171C27;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 10px -6px 4px;
+    transform: scale(0.9);
+    overflow-y: scroll;
+    border: 1px solid #59A2C4;
+}
+
+.cardmenu_scrollbar::-webkit-scrollbar {
+    width: 0.7em;
+    max-height:20px;
+    transition: background-color 1s !important;
+
+}
+
+
+
+.cardmenu_scrollbar::-webkit-scrollbar-thumb {
+    background-color: #e5ebec;
+    border-radius: 10px;
+    transition: background-color 1s !important;
+}
+
+.cardmenu_scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #59A2C4;
+    transition: background-color 1s !important;
+
+
+}

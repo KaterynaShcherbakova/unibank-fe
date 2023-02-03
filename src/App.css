@@ -17,10 +17,36 @@
 
 }
 
-* {
+:root {
+  /* overflow: auto; */
+  /* overflow-y: hidden; */
+  margin: 0;
+}
+
+body {
+  font-family: 'Merriweather';
+}
+
+*,
+::after,
+::before,
+h4,
+h1,
+h2,
+h3,
+h5,
+h6,
+p,
+div,
+a,
+span {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
+
 }
+
+
 
 *:focus {
   outline: none;

@@ -1,0 +1,31 @@
+.AmountButton {
+    background-color: #171C27;
+    width: 9vh;
+    height:32px;
+    border: none;
+    border-radius: 4px;
+    transition:transform 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 2px;
+    margin:0 7px;
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.AmountButton:hover {
+    transition: transform 0.5s;
+    transform: scale(1.1);
+
+}
+
+.amount_button_text{
+    
+    font-size:14px;
+    font-family:'Merriweather', serif;
+    color:#e5ebec;
+    letter-spacing:1px;
+    font-weight: 400;;
+}

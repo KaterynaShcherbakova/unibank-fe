@@ -1,22 +1,60 @@
-import React from 'react'
-import { Background } from '../basic_components/Background';
-import '../basic_components/Background.css';
-import { Header } from '../complex_components/Header/Header';
-import '../complex_components/Header/Header.css';
-import { IoArrowBackCircleSharp } from 'react-icons/io5'
-import { PageName } from '../basic_components/PageName';
-import '../basic_components/PageName.css';
+import {React, useState} from 'react'
+import { Background } from '../basic_components/background/Background';
+import { PageName } from '../basic_components/page_name/PageName';
+import { useTranslation } from 'react-i18next'
+import { TransactionForm } from '../complex_components/transaction_form/TransactionForm';
+import { TemplateBlock } from '../complex_components/template_block/TemplateBlock';
 
 
-export const TransactionPage = () => {
-  function goToMain() {
-    window.location.assign('/');
-}
+export const TransactionPage = (props) => {
+  const { t, i18n } = useTranslation();
+  const [templateType, setTemplatesType] = useState('Recent');
+  const [templateArray, setTemplateArray] = useState(props.recent);
+  const [currentTemplate, setCurrentTemplate] = useState(null);
+  const [currentCard, setCurrentCard] = useState(null);
+  const [currentCardReceiver, setCurrentCardReceiver] = useState(null);
+
+
+  const handleChangeTemplate = (e) => {
+    const value = e.target.checked;
+    console.log(value);
+    if (value) {
+      setTemplatesType('Popular');
+      setTemplateArray(props.popular);
+
+    }
+    else {
+      setTemplatesType('Recent');
+      setTemplateArray(props.recent);
+
+
+
+    }
+  }
+
+
+
+
   return (
     <div className='TransactionPage'>
       <Background page='transactions' />
-      <Header user='Kateryna Shcherbakova' />
-     <PageName page_name={'Transactions'}/>
+      <PageName color={'#171C27'} page_name={t("navigation.transactions")} />
+      <div className="overdiv_transaction_page">
+        <TemplateBlock
+          handleChange={handleChangeTemplate}
+          templateType={templateType}
+          setCurrentTemplate={setCurrentTemplate}
+          currentTemplate={currentTemplate}
+          templateArray={templateArray}
+        />
+        <TransactionForm
+          currentCardReceiver={currentCardReceiver}
+          setCurrentCardReceiver={setCurrentCardReceiver}
+          setCurrentCard={setCurrentCard}
+          currentCard={currentCard} />
+      </div>
+
     </div>
+
   )
 }
