@@ -2,7 +2,6 @@
     background-color: #171C27;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.4) 10px 6px 4px;
-    max-width: 55vw;
     margin: auto;
     min-height: 70px;
     overflow-x: auto;
@@ -34,7 +33,7 @@
 
 
 .choose_card_block::-webkit-scrollbar-thumb {
-    background-color: #6B7B81;
+    background-color: var(--scrollbar);
     border-radius: 10px;
     transition: background-color 1s !important;
 

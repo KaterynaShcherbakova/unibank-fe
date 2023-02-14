@@ -7,7 +7,7 @@ export const Button = (props) => {
             <button
                 disabled={props.disabled}
                 className={`Button ${props.className}`}
-                type={`${props.type}`}
+                type={props.type}
                 onClick={props.onClick}
                 style={{
                     'height': `${props.height}px`,

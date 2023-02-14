@@ -1,7 +1,7 @@
 import React from 'react'
 import './PiggyGoal.css'
 import { useTranslation } from 'react-i18next';
-import { ProgressBarStripe } from '../progress_bar/ProgressBarStripe';
+import { ProgressBarStripe } from '../../basic_components/progress_bar/ProgressBarStripe';
 
 export const PiggyGoal = (props) => {
     const { t } = useTranslation();

@@ -30,12 +30,12 @@ export const Card = (props) => {
     }, [props.currentCard])
 
     useEffect(() => {
-       
-            if (clickedCard) {
-                setIsFlipped(true);
-            }
-            else setIsFlipped(false);
-        
+
+        if (clickedCard) {
+            setIsFlipped(true);
+        }
+        else setIsFlipped(false);
+
 
     }, [clickedCard])
 
@@ -66,7 +66,8 @@ export const Card = (props) => {
             }
             else if (clickedCardNum) {
                 // setShowCardNumber(true);
-                setClickedCardNum(false);}
+                setClickedCardNum(false);
+            }
         }
     }, [props.currentCardNum])
 
@@ -77,7 +78,7 @@ export const Card = (props) => {
                 <div className={`flip-card`}
                     style={{ 'border-radius': `${props.height * 0.05}px`, 'min-height': `${props.height}px` }}>
 
-                    <div className={`flip-card-inner ${isFlipped ? 'do-flip' : ''}`} >
+                    <div className={`flip-card-inner ${isFlipped ? 'do-flip_card' : ''}`} >
 
                         <div className='Card'
                             style={{
@@ -99,7 +100,7 @@ export const Card = (props) => {
                                     'font-size': `${props.height * 0.1}px`
                                 }}
                                 onClick={(e) => { clickedCardNum ? props.setCurrentCardNum(null) : props.setCurrentCardNum(props.full_card_number); handleClickNumber(e); }}
-                            > {clickedCardNum  ? props.full_card_number : props.card_number}</div>
+                            > {clickedCardNum ? props.full_card_number : props.card_number}</div>
 
                             <div className='card_ddl'
                                 style={{
@@ -130,8 +131,16 @@ export const Card = (props) => {
                     </div>
                 </div>
             ) : (
-                <div className='Card Card-hover' style={{ 'border-radius': `${props.height * 0.05}px`, 'min-height': `${props.height}px`, 'border': clickedCard && '3px solid #6B7B81' }}
-                    onClick={() => { clickedCard ? props.setCurrentCard(null) : props.setCurrentCard(props.id) }}
+                <div className='Card Card-hover' style={{ 'border-radius': `${props.height * 0.05}px`, 'min-height': `${props.height}px`, 'border': `${props.borderSize} solid ${clickedCard ? props.borderColor : 'transparent'}`}}
+                    onClick={() => {
+                        if (!props.isCardArray) {
+                            if (clickedCard) { props.setCurrentCard(null); props.chooseCard(null) }
+                            else { props.setCurrentCard(props.id); props.chooseCard(props.id) }
+                        }
+                        else {
+                            props.setCurrentCard(props.id)
+                        }
+                    }}
                 >
                     <Logo className='card_logo' width={props.height * 0.375} height={0.22 * props.height} />
                     <div className='card_number' style={{ 'letter-spacing': `${props.letter_spacing}px`, 'font-size': `${props.height * 0.1}px` }} > {props.card_number}</div>

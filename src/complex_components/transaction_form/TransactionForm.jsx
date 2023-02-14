@@ -2,9 +2,7 @@ import { React, useState } from 'react'
 import './TransactionForm.css'
 import { BsQuestionCircleFill } from 'react-icons/bs'
 import { useTranslation } from 'react-i18next'
-import { Card } from '../../basic_components/card/Card'
 import InputField from '../../basic_components/input/InputField'
-import { cards } from '../../App'
 import { FaRegCreditCard } from 'react-icons/fa'
 import { Button } from '../../basic_components/button/Button'
 import { HorizontalCardScrollbar } from '../horizontal_card_scrollbar/HorizontalCardScrollbar'
@@ -17,11 +15,35 @@ export const TransactionForm = (props) => {
     const [cardScrollbar, setCardScrollbar] = useState(false);
     const money = [100, 200, 500, 1000, 5000];
     const [transaction, setTransaction] = useState({
-        sender: '',
-        receiver: '',
+        sender: null,
+        receiver: {
+            id: null,
+            cardNum: ''
+        },
         amount: null,
         comment: ''
     })
+
+
+    const senderCard = (id) => {
+        setTransaction({
+            ...transaction,
+            sender: id
+        });
+
+    }
+
+    const receiverCard = (id) => {
+        setTransaction({
+            ...transaction,
+            receiver: {
+                ...transaction.receiver,
+                id: id
+            }
+        });
+
+    }
+    console.log(transaction.receiver.id);
     return (
         <>
             <div className="transaction_form">
@@ -32,8 +54,14 @@ export const TransactionForm = (props) => {
 
                 </div>
                 <HorizontalCardScrollbar
+                    borderSize='3px'
+                    borderColor='#6B7B81'
+                    color='#6B7B81'
+                    width={55}
                     setCurrentCard={props.setCurrentCard}
                     currentCard={props.currentCard}
+                    chooseCard={senderCard}
+
                 />
                 {!cardScrollbar ? (
                     <div className="trans_form_receiver_box">
@@ -62,9 +90,15 @@ export const TransactionForm = (props) => {
                             />
                         </div>
                         <HorizontalCardScrollbar
-
+                            borderSize='3px'
+                            borderColor='#6B7B81'
+                            color='#6B7B81'
+                            width={55}
                             setCurrentCard={props.setCurrentCardReceiver}
-                            currentCard={props.currentCardReceiver} />
+                            currentCard={props.currentCardReceiver}
+                            chooseCard={receiverCard}
+
+                        />
 
                     </>)}
                 <div className="trans_form_amount_box">

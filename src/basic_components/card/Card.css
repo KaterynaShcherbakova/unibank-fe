@@ -8,7 +8,6 @@
     cursor: pointer;
     transition: all 1s;
     user-select: none;
-    border: 3px solid transparent;
 
 
 }
@@ -63,13 +62,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
 }
 
 .card_company {
     font-family: 'Fanwood Text';
     margin-left: 10px;
     user-select: none;
+    color:black;
 }
 
 
@@ -89,7 +88,7 @@
 }
 
 /* .flip-card-hover .flip-card-inner { */
-.do-flip {
+.do-flip_card {
     transform: rotateX(180deg) translate(0%, -2.5%);
 }
 

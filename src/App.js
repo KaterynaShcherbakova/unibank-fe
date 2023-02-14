@@ -6,8 +6,6 @@ import { TransactionPage } from './pages/TransactionPage';
 import { PiggyBankPage } from './pages/PiggyBankPage';
 import { Header } from './complex_components/header/Header';
 import { SettingsPage } from './pages/SettingsPage';
-import { ErrorMessage } from './basic_components/message/ErrorMessage';
-import { Checkbox } from './basic_components/checkbox/Checkbox';
 import './pages/Pages.css'
 import './App.css';
 
@@ -101,38 +99,24 @@ function App() {
 
   }]
 
-  const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messageTheme, setMessageTheme] = useState('');
-
-  const messageFunc = (state, text, theme) => {
-    setShowMessage(state);
-    setMessage(text);
-    setMessageTheme(theme);
-  }
-
+  
 
   return (
     <>
       {!window.location.pathname.includes('/login') ? <Header user='Kateryna Shcherbakova' /> : null}
 
       <div className={!window.location.pathname.includes('/login') ? 'MainContent' : ''}>
-        <ErrorMessage
-          showMessage={showMessage}
-          message={message}
-          messageTheme={messageTheme}
-        />
+       
         <BrowserRouter>
           <Routes >
-            <Route path="/login" element={<AuthPage messageFunc={messageFunc} />} />
-            <Route exact path="/" element={<MainPage messageFunc={messageFunc} />} />
+            <Route path="/login" element={<AuthPage />} />
+            <Route exact path="/" element={<MainPage/>} />
             <Route path='/transactions' element={<TransactionPage recent={recent} popular={popular} />} />
             <Route path="/savings" element={<PiggyBankPage />} />
             <Route path='settings' element={<SettingsPage />} />
           </Routes>
         </BrowserRouter>
       </div>
-      {/* <Checkbox/> */}
     </>
   )
 }

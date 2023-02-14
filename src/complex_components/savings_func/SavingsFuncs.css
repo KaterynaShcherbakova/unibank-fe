@@ -1,0 +1,291 @@
+.SavingsFunc,
+.savings-flip-box {
+  min-width: 85vh;
+  height: 260px;
+  background-color: #e5ebec;
+  border-radius: 7px;
+  /* margin-right: 24vh; */
+  box-shadow: rgba(0, 0, 0, 0.4) 6px 8px 4px;
+
+}
+
+.savings_func_row {
+  display: flex;
+  padding-left: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.5s;
+
+}
+
+.savings_func_row:hover {
+  background-color: #171C27;
+  color: #e5ebec;
+  transition: all 0.5s;
+
+}
+
+.savings_func_text {
+  font-weight: 500;
+  font-family: 'Merriweather';
+  font-size: 22px;
+  margin-left: 25px;
+  user-select: none;
+
+}
+
+/* flip */
+.savings-flip-box {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.savings-flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.3s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.do-flip_func {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.SavingsFunc,
+.savings-flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+
+
+/* Style the back side */
+.savings-flip-box-back {
+  display: flex;
+  justify-content: center;
+  background-color: #171C27;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.4) 6px 8px 4px;
+
+
+}
+
+.savings_func_button_div {
+  gap: 40px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-self: flex-end;
+  margin-bottom: 20px;
+  position: absolute;
+  /* margin-left:17px; */
+}
+
+.savings_func_button {
+  background: #e5ebec;
+  color: #171C27;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease-out;
+
+
+}
+
+.savings_func_button:hover {
+  background-color: #171C27;
+  color: #e5ebec;
+  border: 1px solid #e5ebec;
+}
+
+.savings_func_icon {
+  margin-right: auto;
+  margin-left: 15px;
+  margin-top: 10px;
+
+
+  position: relative;
+
+}
+
+.savings_func_param_text {
+  font-family: 'Merriweather';
+  font-size: 25px;
+  font-weight: 400;
+  min-width: fit-content;
+  position: absolute;
+  align-self: center;
+  /* margin-left: 80px; */
+  margin-top: -100px;
+  display: flex;
+  user-select: none;
+
+}
+
+.new_goal {
+  margin-top: 0px;
+  margin-left: 12px;
+
+}
+
+.savings_func_input {
+  width: 170px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 17px;
+  border: 2px solid #e5ebec;
+  color: #e5ebec;
+}
+
+.savings_func_input::placeholder {
+  color: #e5ebec;
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.savings_func_input:focus::placeholder {
+  color: transparent;
+}
+
+.new_goal_input {
+  background-color: #59A2C4;
+
+}
+
+.feed_input {
+  background-color: #758392;
+
+}
+
+.takeout_input {
+  background-color: #6B7B81;
+
+}
+
+.savings_func_feeding_div {
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 15px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.savings_func_scrollbar_feed {
+  background-color: #758392;
+  box-shadow: none;
+}
+
+.savings_func_scrollbar_takeout {
+  background-color: #6B7B81;
+  box-shadow: none;
+}
+
+.savings_func_feeding_text {
+  display: flex;
+  align-items: center;
+  font-family: 'Merriweather';
+  font-size: 24px;
+  user-select: none;
+
+}
+
+.savings_func_empty_div,
+.savings_func_cards_to_feed {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.savings_func_cards_to_feed {
+  margin-top: 10px;
+  gap: 20px;
+
+}
+
+.savings_func_empty_piggy_text {
+  font-size: 25px;
+  font-family: 'Merriweather';
+  user-select: none;
+
+
+}
+
+.savings_func_cards_piggy_text {
+  font-size: 21px;
+  font-family: 'Merriweather';
+  user-select: none;
+
+}
+
+.broken_piggy_icon {
+  max-width: 60px;
+  max-height: 60px;
+  user-select: none;
+
+}
+
+.savings_func_scrollbar_empty {
+  background-color: none;
+  box-shadow: none;
+
+}
+
+.savings_func_cards_amount {
+  width: 35px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #59A2C4;
+  color: #e5ebec;
+  font-family: 'Merriweather';
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error_icon_savings {
+  color: #758392;
+
+}
+
+.error_icon_savings_takeout{
+  color:#6B7B81;
+}
+
+.input_error_savings,
+.input_success_savings {
+  margin-left: auto;
+  position: absolute;
+  margin-top: 21px;
+  margin-right: 10px;
+}
+
+.success_icon_savings {
+  color: #e5ebec;
+
+
+
+}
+
+.savings_func_button:hover:disabled {
+  transform: none;
+  background-color: #e5ebec;
+  color: #171C27;
+}

@@ -4,7 +4,7 @@ import { Button } from '../../basic_components/button/Button'
 import { BsCheckCircleFill } from 'react-icons/bs'
 import { BsFillXCircleFill } from 'react-icons/bs'
 import { useTranslation } from 'react-i18next'
-
+import { InputValidation } from '../../basic_components/input_validation/InputValidation'
 const EMAIL_REGEX = /^[\w.]+@[\w]+\.[\w]+$/;
 export const LoginForm = (props) => {
     const { t } = useTranslation();
@@ -142,12 +142,13 @@ export const LoginForm = (props) => {
                             inpType='auth_form'
 
                         />
-                        {(error.emailError && input.email) &&
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.emailError, 'error')} onMouseEnter={() => props.messageFunc(true, error.emailError, 'error')} />
-                            </div>}
-
-                        {(!error.emailError && input.email) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
+                        {!input.email ? null :
+                            <InputValidation
+                                error={error.emailError}
+                                messageType='error'
+                                value={input.email}
+                                messageFunc={props.messageFunc}
+                            />}
                     </div>
 
                     <div className="input_success_div">
@@ -164,12 +165,13 @@ export const LoginForm = (props) => {
 
 
                         />
-                        {(error.passwordError && input.password) &&
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.passwordError, 'error')} onMouseEnter={() => props.messageFunc(true, error.passwordError, 'error')} />
-                            </div>}
-
-                        {(!error.passwordError && input.password) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
+                        {!input.password ? null :
+                            <InputValidation
+                                error={error.passwordError}
+                                messageType='error'
+                                value={input.password}
+                                messageFunc={props.messageFunc}
+                            />}
                     </div>
                     <Button
                         height={40}

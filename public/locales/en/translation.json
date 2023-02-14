@@ -1,7 +1,7 @@
 {
     "navigation": {
         "transactions": "Transactions",
-        "piggy_bank": "Piggy Bank",
+        "piggy_bank": "Piggybank",
         "history": "History",
         "shared_wallet": "Shared Wallet",
         "settings": "Settings",
@@ -27,7 +27,7 @@
         "empty_surname": "Surname can not be empty!",
         "empty_patronymic": "Patronymic can not be empty!",
         "empty_email": "Email can not be empty!",
-        "empty_passsword": "Password can not be empty!",
+        "empty_password": "Password can not be empty!",
         "empty_confirm_pass": "Please, confirm password!",
         "not_valid_name": "Name is not valid!",
         "not_valid_surname": "Surname is not valid!",
@@ -52,18 +52,33 @@
     "message": {
         "clipboard": "Card number was copied"
     },
-
-    "savings":{
-        "piggy_bank":"Piggybank",
-        "goal":"Goal",
-        "change_goal":"Change goal",
-        "feed_piggy":"Feed piggy",
-        "take_money_out":"Take money out",
-        "empty_piggy":"Empty piggybank",
-        "choose_card":"Choose card",
-        "piggy_settings":"Piggy's settings",
-        "percent":"Percent from payments",
-        "round_to":"Round to",
-        "deactivate":"Temporary deactivate"
+    "savings": {
+        "piggy_bank": "Piggybank",
+        "goal": "Goal",
+        "change_goal": "Change goal",
+        "feed_piggy": "Feed piggy",
+        "take_money_out": "Take money out",
+        "empty_piggy": "Empty piggybank",
+        "choose_card": "Choose card",
+        "piggy_settings": "Piggy's settings",
+        "percent": "Percent from payments",
+        "round_to": "Round to",
+        "deactivate": "Temporary deactivate",
+        "save": "Save",
+        "back": "Back",
+        "ok": "OK",
+        "feed": "Feed",
+        "take_out": "Take out",
+        "curr_goal": "Current goal",
+        "new_goal": "New goal",
+        "empty_your_piggy": "Empty your piggy",
+        "cards_to_feed_piggy": "Cards to feed piggy permanently",
+        "sum": "Sum",
+        "error_field": "Field must contain only positive numbers",
+        "error_not_money": "There is not enough money in the piggy bank",
+        "error_choose_card": "You must select card",
+        "tip_few_card": "You can choose more than one card",
+        "error_empty_field":"Field can not be empty",
+        "tip_empty_savings":"All your savings will transfered to choosen card"
     }
 }
