@@ -26,7 +26,13 @@ export const Hexagon = (props) => {
 
         <Link to={props.theme === 'piggy bank' ? '/savings' :
           props.theme === 'transactions' ? '/transactions' :
-            props.theme === 'settings' ? '/settings' : null}>
+            props.theme === 'settings' ? '/settings' :
+              props.theme === 'shared wallet' ? '/sharedwallet' :
+                props.theme === 'blueprints' ? '/blueprints' :
+                  props.theme === 'messages' ? '/messages' :
+                    props.theme === 'history' ? '/history' :
+
+                      null}>
           <div class="flip-box-inner">
 
 
@@ -37,7 +43,7 @@ export const Hexagon = (props) => {
                     props.size === 'smallest' ? { 'height': '27.5vh', 'width': '16.5vh', 'margin-right': '15vh' } : null
               }
 
-              // onClick={props.theme === 'savings' ? window.location.assign('/savings') : null}
+            // onClick={props.theme === 'savings' ? window.location.assign('/savings') : null}
             >
               {
                 props.theme === 'transactions' ?
@@ -66,7 +72,7 @@ export const Hexagon = (props) => {
                     props.theme === 'history' ?
                       <h2 className='flip-box-back_text'>{t("navigation.history")}</h2> :
                       props.theme === 'settings' && i18n.language === 'ua' ?
-                        <h3 style={{'font-size':'3vh'}} className='flip-box-back_text'>{t("navigation.settings")}</h3> :
+                        <h3 style={{ 'font-size': '3vh' }} className='flip-box-back_text'>{t("navigation.settings")}</h3> :
                         props.theme === 'settings' && i18n.language === 'en' ?
                           < h2 className='flip-box-back_text'>{t("navigation.settings")}</h2> :
                           props.theme === 'messages' ?

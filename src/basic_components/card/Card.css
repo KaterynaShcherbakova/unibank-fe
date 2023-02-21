@@ -15,8 +15,13 @@
 .Card-hover:hover {
     transform: scale(1.09);
     transition: transform 1s;
-   
 
+
+}
+
+.Card-hover-wallet:hover {
+    transform: scale(1.04);
+    transition: transform 1s;
 }
 
 .flip-card-back {
@@ -68,7 +73,7 @@
     font-family: 'Fanwood Text';
     margin-left: 10px;
     user-select: none;
-    color:black;
+    color: black;
 }
 
 
@@ -110,13 +115,18 @@
     font-weight: 300;
 }
 
-.card_back_cvv_box {
+.card_back_cvv_box,
+.card_back_cvv_box_wallet {
     align-items: center;
     justify-content: center;
     background-color: #758392;
     width: 22%;
     display: flex;
     align-self: flex-end;
+}
+
+.card_back_cvv_box_wallet {
+    background-color: #171C27;
 }
 
 .cvv_text {
@@ -127,11 +137,23 @@
     margin-right: 3%;
 }
 
-.cvv_box {
+.cvv_box,
+.cvv_box_wallet {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-top: auto;
     margin-bottom: 5%;
     margin-right: 5%;
+   
+
+}
+
+
+.cvv_box_wallet {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: auto;
+    margin-left: 10%;
 }

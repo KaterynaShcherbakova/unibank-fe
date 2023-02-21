@@ -3,6 +3,7 @@ import { Background } from '../basic_components/background/Background';
 import { CardMenu } from '../complex_components/card_menu/CardMenu';
 import { HexagonBox } from '../complex_components/hexagon_box/HexagonBox';
 import { ErrorMessage } from '../basic_components/message/ErrorMessage';
+import { cards } from '../App';
 
 
 
@@ -30,6 +31,8 @@ export const MainPage = (props) => {
                 messageTheme={messageTheme}
             />
             <CardMenu
+                type='cardmenu'
+                cardArray={cards}
                 setCurrentCard={setCurrentCard}
                 currentCard={currentCard}
                 currentCardNum={currentCardNum}

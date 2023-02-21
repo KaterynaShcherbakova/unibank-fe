@@ -62,7 +62,7 @@ export const PiggyBankPage = () => {
           curr_money_amount={currAmount}
           messageFunc={messageFunc} />
       </div>
-      <SavingsSettings />
+      <SavingsSettings messageFunc={messageFunc} />
     </div>
   )
 }

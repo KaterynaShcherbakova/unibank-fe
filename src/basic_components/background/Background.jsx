@@ -10,10 +10,11 @@ export const Background = (props) => {
                         props.page === 'transactions' ? { 'background-color': '#E5EBEC' } :
                             props.page === 'settings' ? { 'background-color': '#6B7B81' } :
                                 props.page === 'loading' ? { 'background-color': '#171C27' } :
-                                    props.page === 'savings' ? { 'background-color': '#6B7B81' } : null}
+                                    props.page === 'savings' ? { 'background-color': '#6B7B81' } :
+                                        props.page === 'shared wallet' ? {  'background-color': '#E5EBEC'} : null}
 
-        ></ div >
+                                        ></ div >
 
-    )
+            )
 }
 

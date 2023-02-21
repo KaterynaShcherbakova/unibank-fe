@@ -1,0 +1,7 @@
+.WalletMainForm{
+    min-height: 70%;
+    min-width: 70%;
+    margin-top: -35px;
+    display: flex;
+    flex-direction: column;
+}

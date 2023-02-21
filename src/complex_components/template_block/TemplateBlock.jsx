@@ -21,12 +21,18 @@ export const TemplateBlock = (props) => {
                 <>
                     {props.templateArray.map((e) => (
                         <Template
+                            transaction={props.transaction}
                             type={props.templateType}
                             setCurrentTemplate={props.setCurrentTemplate}
                             currentTemplate={props.currentTemplate}
                             id={e.id}
-                             amount={e.amount}
-                            title={e.title} />
+                            message={e.message}
+                            cardNum={e.cardNum}
+                            amount={e.amount}
+                            title={e.title}
+                            setCurrTransaction={props.setCurrTransaction}
+                            currTransaction={props.currTransaction}
+                        />
 
                     ))}
                 </>

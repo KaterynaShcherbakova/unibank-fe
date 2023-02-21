@@ -31,7 +31,7 @@ export const SavingsFuncs = (props) => {
         amount: null
     });
     const [takeOutError, setTakeOutError] = useState('');
-    const [cardToEmpty, setCardToEmpty] = useState(null);
+    const [cardToEmpty, setCardToEmpty] = useState('');
     const [cardToEmptyError, setCardToEmptyError] = useState(null);
     const [disabledOk, setDisabledOk] = useState(false);
 
@@ -119,8 +119,6 @@ export const SavingsFuncs = (props) => {
 
     }
     const handleCancel = () => {
-
-        if (clickedId == 4) props.messageFunc(false, t("savings.tip_empty_savings"), 'tip');
         setGoal(null);
         setGoalError(false);
         setFeed({
@@ -138,16 +136,67 @@ export const SavingsFuncs = (props) => {
         props.setCurrentCardEmpty(null);
         props.setCurrentCardFeed(null);
         props.setCurrentCardTakeOut(null);
-
+        if (clickedId === 4) props.messageFunc(false, t("savings.tip_empty_savings"), 'tip');
+       
     }
 
-    const handleSave = () => {
+
+
+    const handleSave = (id) => {
         console.log(goal);
         console.log(feed);
         console.log(takeOut);
         console.log(cardToEmpty);
-        console.log(props.feedingArray)
+        console.log(props.feedingArray);
+
         handleCancel();
+
+        switch (id) {
+
+            case 1: {
+                props.messageFunc(true, t('savings.confirm_new_goal'), 'confirm');
+                setTimeout(() => {
+                    props.messageFunc(false, t('savings.confirm_new_goal'), 'confirm');
+                },
+                    5000);
+                break;
+            }
+            case 2: {
+                props.messageFunc(true, t('savings.confirm_feed_piggy'), 'confirm');
+                setTimeout(() => {
+                    props.messageFunc(false, t('savings.confirm_feed_piggy'), 'confirm');
+                },
+                    5000);
+                break;
+            }
+            case 3: {
+                props.messageFunc(true, t('savings.confirm_take_money_out'), 'confirm');
+                setTimeout(() => {
+                    props.messageFunc(false, t('savings.confirm_take_money_out'), 'confirm');
+                },
+                    5000);
+                break;
+            }
+            case 4: {
+                props.messageFunc(true, t('savings.confirm_empty_piggy'), 'confirm');
+                setTimeout(() => {
+                    props.messageFunc(false, t('savings.confirm_empty_piggy'), 'confirm');
+                },
+                    5000);
+                break;
+            }
+            case 5: {
+                props.messageFunc(true, t('savings.confirm_new_cards'), 'confirm');
+                setTimeout(() => {
+                    props.messageFunc(false, t('savings.confirm_new_cards'), 'confirm');
+                },
+                    5000);
+                break;
+
+            }
+            default: props.messageFunc(false, '', '');
+
+        }
     }
 
     const validate = (obj, setError) => {
@@ -175,7 +224,7 @@ export const SavingsFuncs = (props) => {
 
     }, [feed, takeOut])
 
-    
+
 
     useEffect(() => {
         switch (clickedId) {
@@ -197,14 +246,14 @@ export const SavingsFuncs = (props) => {
 
             }
             case 4: {
-                setDisabledOk(false);
                 if (cardToEmptyError) setDisabledOk(true);
                 else setDisabledOk(false);
+
                 break;
 
             }
             case 5: {
-               
+
                 if (props.curr_card_amount === 0) setDisabledOk(true);
                 else setDisabledOk(false);
                 break;
@@ -212,7 +261,7 @@ export const SavingsFuncs = (props) => {
             default: setDisabledOk(true);
         }
 
-    }, [goalError, feedError, takeOutError, cardToEmptyError, props.curr_card_amount])
+    }, [goalError, feedError, takeOutError, props.currentCardEmpty, props.curr_card_amount])
 
 
 
@@ -344,7 +393,10 @@ export const SavingsFuncs = (props) => {
 
                                 </> :
                                     clickedId === 4 ? <>
-                                        {cardToEmpty ? props.messageFunc(true, t("savings.tip_empty_savings"), 'tip') : props.messageFunc(false, t("savings.tip_empty_savings"), 'tip')}
+                                        {cardToEmpty ?
+                                            props.messageFunc(true, t("savings.tip_empty_savings"), 'tip') :
+                                            props.messageFunc(false, t("savings.tip_empty_savings"), 'tip')}
+
                                         <div className="savings_func_feeding_div">
                                             <div className="savings_func_empty_div">
                                                 <h3 className="savings_func_empty_piggy_text">
@@ -396,9 +448,10 @@ export const SavingsFuncs = (props) => {
                                 buttonName={t("savings.back")}
                                 className='savings_func_button'
                                 onClick={() => {
+                                    handleCancel();
                                     setDoFlip(false);
                                     setClickedId(null);
-                                    handleCancel();
+
                                 }}
                             />
 
@@ -411,7 +464,7 @@ export const SavingsFuncs = (props) => {
                                 className='savings_func_button'
                                 disabled={disabledOk}
                                 onClick={() => {
-                                    handleSave();
+                                    handleSave(clickedId);
                                     setDoFlip(false);
                                     setClickedId(null);
                                 }}

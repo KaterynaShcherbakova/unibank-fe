@@ -4,23 +4,33 @@ import { useTranslation } from 'react-i18next'
 import { Checkbox } from '../../basic_components/checkbox/Checkbox';
 import { Button } from '../../basic_components/button/Button'
 
-export const SavingsSettings = () => {
+export const SavingsSettings = (props) => {
     const { t } = useTranslation();
     const [showPercentage, setShowPercentage] = useState(false);
     const [percentageError, setPercentageError] = useState(false);
     const [showRound, setShowRound] = useState(false);
     const [disabledOptions, setDisabledOptions] = useState(false);
     const [disabledDeactivate, setDisabledDeactivate] = useState(false);
-
+    const [disabledSave, setDisabledSave] = useState(false);
 
 
     const round_to = [0, 1, 10, 100];
     const [settings, setSettings] = useState({
-        percentage: null,
-        round_to: null,
+        percentage: '',
+        round_to: '',
         deactivate: false
     })
 
+
+    useEffect(() => {
+        if ((!showPercentage && !showRound && !settings.deactivate) || percentageError) {
+            setDisabledSave(true);
+        }
+        else {
+            setDisabledSave(false);
+        }
+
+    }, [settings, showPercentage, showPercentage])
 
     const handleChangeInput = (e) => {
         const value = e.target.checked;
@@ -100,9 +110,15 @@ export const SavingsSettings = () => {
 
     const handleForm = () => {
         console.log(settings);
+        props.messageFunc(true, t('savings.confirm_saved_settings'), 'confirm');
+        setTimeout(() => {
+            props.messageFunc(false, t('savings.confirm_saved_settings'), 'confirm');
+        },
+            5000);
+
         setSettings({
-            percentage: null,
-            round_to: null,
+            percentage: '',
+            round_to: '',
             deactivate: false
         });
         setPercentageError(false);
@@ -186,7 +202,7 @@ export const SavingsSettings = () => {
                 <Button
                     height={33}
                     buttonName={t("savings.save")}
-                    disabled={percentageError}
+                    disabled={disabledSave}
                     className='savings_button'
                     onClick={handleForm} />
             </div>

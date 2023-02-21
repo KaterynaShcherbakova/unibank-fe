@@ -21,7 +21,7 @@
 .transaction_icon:hover {
     transform: scale(1.1);
     transition: all 0.7s;
-    color: #6B7B81;
+    
 }
 
 .transaction_page_text {
@@ -32,6 +32,7 @@
     font-weight: 600;
     margin-top: 3.5%;
     margin-bottom: 5px;
+    
 
 
 }
@@ -61,7 +62,7 @@
 }
 
 .trans_form_receiver {
-    font-family: 'KoHo';
+
     height: 37px;
     width: 20.5vw;
 
@@ -76,7 +77,6 @@
 
 .trans_form_receiver::placeholder {
     opacity: 0.5;
-    font-family: 'KoHo', serif;
     font-size: 13px;
     color: #e5ebec;
 
@@ -151,6 +151,15 @@
 .trans_form_button{
     border:3px solid #171C27;
     transition: hover 0.7s, background-color 0.5s ease-out;
+
+}
+
+.trans_form_button:hover:disabled{
+    transition: none;
+    background-color:#171C27;
+    color: white;
+    font-weight:400;
+
 
 }
 
