@@ -1,0 +1,17 @@
+.WalletHeader{
+    display:flex;
+    flex-direction: row;
+    gap:25px;
+    align-self: flex-end;
+
+}
+.wallet_header_icon{
+   cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.wallet_header_icon:hover{
+    transform: scale(1.07);
+    
+    transition: transform 0.5s;
+}

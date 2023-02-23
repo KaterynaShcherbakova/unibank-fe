@@ -1,0 +1,165 @@
+.transaction_form {
+    min-height: 70%;
+    min-width: 70%;
+    margin-top: -52px;
+}
+
+.choose_card_text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction_icon {
+    margin-right: 10%;
+    align-self: flex-start;
+    margin-top: 3%;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+.transaction_icon:hover {
+    transform: scale(1.1);
+    transition: all 0.7s;
+    
+}
+
+.transaction_page_text {
+    letter-spacing: 1px;
+    font-size: 17px;
+    margin-left: 2%;
+    color: black;
+    font-weight: 600;
+    margin-top: 3.5%;
+    margin-bottom: 5px;
+    
+
+
+}
+
+
+.trans_form_message,
+.trans_form_receiver,
+.trans_form_amount {
+    height: 30px;
+    width: 55vw;
+    align-self: center;
+    background-color: #6B7B81;
+    color: #e5ebec;
+    font-family: 'Merriweather';
+    letter-spacing: 2px;
+    padding-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 10px 6px 4px;
+    border: 4px solid #171C27;
+    font-size: 14px;
+}
+
+.trans_form_amount,
+.trans_form_receiver {
+    width: 20vw;
+    align-self: flex-start;
+    margin-left: 10%;
+}
+
+.trans_form_receiver {
+
+    height: 37px;
+    width: 20.5vw;
+
+}
+
+.trans_form_message::placeholder {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 2px;
+    color: #e5ebec;
+    font-size: 14px;
+}
+
+.trans_form_receiver::placeholder {
+    opacity: 0.5;
+    font-size: 13px;
+    color: #e5ebec;
+
+
+}
+
+.trans_form_amount::placeholder {
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    color: #e5ebec;
+    letter-spacing: 2px;
+
+}
+
+.trans_form_message:focus::placeholder,
+.trans_form_receiver:focus::placeholder,
+.trans_form_amount:focus::placeholder {
+    color: transparent;
+}
+
+.trans_form_receiver {
+    border: none;
+    color: #e5ebec;
+    background-color: #171C27;
+}
+
+.trans_form_receiver_box, .trans_form_amount_box {
+    position: relative;
+}
+
+.trans_form_receiver_icon,
+.trans_form_amount_button {
+    align-self: flex-end;
+    /* margin-left: 10%; */
+    transition: transform 0.7s;
+    position: absolute;
+    bottom: 3px;
+    left: calc(13.5% + 20vw);
+
+}
+
+.trans_form_amount_button{
+    display: flex;
+    left: calc(13% + 20vw);
+
+}
+
+.trans_form_receiver_icon:hover {
+    transform: scale(1.1);
+    color: #6B7B81;
+    transition: transform 0.7s;
+}
+
+
+.trans_form_button_box {
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    width: 50%;
+    margin-right: 10vw;
+    margin-top: 25px;
+    transition: hover 0.7s;
+}
+
+.trans_form_button:hover {
+    background-color:#e5ebec;
+    color: #171C27;
+    border:3px solid #171C27;
+    font-weight:600;
+}
+
+.trans_form_button{
+    border:3px solid #171C27;
+    transition: hover 0.7s, background-color 0.5s ease-out;
+
+}
+
+.trans_form_button:hover:disabled{
+    transition: none;
+    background-color:#171C27;
+    color: white;
+    font-weight:400;
+
+
+}
+

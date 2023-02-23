@@ -1,24 +1,25 @@
 import { useState, React } from 'react'
-import { LoginForm } from '../complex_components/Validation/LoginForm';
-import { SignupForm } from '../complex_components/Validation/SignupForm';
-import '../complex_components/Validation/AuthForm.css'
-import { ErrorMessage } from '../basic_components/ErrorMessage';
-import { Background } from '../basic_components/Background';
+import { LoginForm } from '../complex_components/validation/LoginForm';
+import { SignupForm } from '../complex_components/validation/SignupForm';
+import '../complex_components/validation/AuthForm.css'
+import { Background } from '../basic_components/background/Background';
+import { ErrorMessage } from '../basic_components/message/ErrorMessage';
 
-
-
-function AuthPage() {
-    const [showMessage, setShowMessage] = useState(false);
-    const [message, setMessage] = useState('');
+function AuthPage(props) {
 
     const [currForm, setCurrForm] = useState('signup');
     const toggleForm = (formName) => {
         setCurrForm(formName);
     }
 
-    const messageFunc = (state, text) => {
+    const [showMessage, setShowMessage] = useState(false);
+    const [message, setMessage] = useState('');
+    const [messageTheme, setMessageTheme] = useState('');
+
+    const messageFunc = (state, text, theme) => {
         setShowMessage(state);
         setMessage(text);
+        setMessageTheme(theme);
     }
 
 
@@ -29,6 +30,7 @@ function AuthPage() {
                 <ErrorMessage
                     showMessage={showMessage}
                     message={message}
+                    messageTheme={messageTheme}
                 />
 
                 {

@@ -1,0 +1,16 @@
+.Button {
+   
+    border-radius: 7px;
+    align-self: center;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.5s;
+    user-select: none;
+    background-color: #171C27;
+    color: #ffffff;
+    aspect-ratio: 5/1;
+}

@@ -1,21 +1,22 @@
 import { useState, React, useEffect } from 'react'
-import InputField from '../../basic_components/InputField'
-import '../../basic_components/InputField.css'
-import { Button } from '../../basic_components/Button'
-import '../../basic_components/Button.css'
+import InputField from '../../basic_components/input/InputField'
+import { Button } from '../../basic_components/button/Button'
 import { BsCheckCircleFill } from 'react-icons/bs'
 import { BsFillXCircleFill } from 'react-icons/bs'
-
+import { useTranslation } from 'react-i18next'
+import { InputValidation } from '../../basic_components/input_validation/InputValidation'
 const EMAIL_REGEX = /^[\w.]+@[\w]+\.[\w]+$/;
 export const LoginForm = (props) => {
+    const { t } = useTranslation();
+
     const [user, setUser] = useState({
         email: '',
         password: ''
     })
 
     const [error, setError] = useState({
-        emailError: 'Email can not be empty!',
-        passwordError: 'Password can not be empty!'
+        emailError: `${t("error.empty_email")}`,
+        passwordError: `${t("error.empty_password")}`
     })
     const [input, setInput] = useState({
         email: false,
@@ -68,14 +69,14 @@ export const LoginForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    emailError: 'Email can not be empty!'
+                    emailError: `${t("error.empty_email")}`
                 });
 
             }
             else if (!EMAIL_REGEX.test(e.target.value)) {
                 setError({
                     ...error,
-                    emailError: 'Email is not valid!'
+                    emailError: `${t("error.not_valid_email")}`
                 });
             }
             else {
@@ -90,7 +91,13 @@ export const LoginForm = (props) => {
             if (!e.target.value) {
                 setError({
                     ...error,
-                    passwordError: 'Password can not be empty!'
+                    passwordError: `${t("error.empty_password")}`
+                });
+            }
+            else if (e.target.value.length < 8) {
+                setError({
+                    ...error,
+                    passwordError: `${t("error.too_short_passsword")}`
                 });
             }
             else {
@@ -119,14 +126,14 @@ export const LoginForm = (props) => {
 
         <div className='container_login_form'>
             <form onSubmit={handleSubmit} className='login'>
-                <div className='auth_form_title'>Log In</div>
+                <div className='auth_form_title'>{t("auth.login")}</div>
 
                 <div className='auth_input_fields'>
                     <div className="input_success_div">
                         <InputField
                             name='email'
                             type='email'
-                            label='Email:'
+                            label={`${t("auth.email")}:`}
                             placeholder=''
                             className={`login_input ${(error.emailError && input.email) ? "form_input_error" : "form_input_success"}}`}
                             value={user.email}
@@ -135,19 +142,20 @@ export const LoginForm = (props) => {
                             inpType='auth_form'
 
                         />
-                        {(error.emailError && input.email) &&
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.emailError)} onMouseEnter={() => props.messageFunc(true, error.emailError)} />
-                            </div>}
-
-                        {(!error.emailError && input.email) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
+                        {!input.email ? null :
+                            <InputValidation
+                                error={error.emailError}
+                                messageType='error'
+                                value={input.email}
+                                messageFunc={props.messageFunc}
+                            />}
                     </div>
 
                     <div className="input_success_div">
                         <InputField
                             name='password'
                             type='password'
-                            label='Password:'
+                            label={`${t("auth.password")}:`}
                             placeholder=''
                             className={`login_input ${(error.passwordError && input.password) ? "form_input_error" : "form_input_success"}}`}
                             value={user.password}
@@ -157,15 +165,17 @@ export const LoginForm = (props) => {
 
 
                         />
-                        {(error.passwordError && input.password) &&
-                            <div className="form_message input_error">
-                                <BsFillXCircleFill className="form_error_icon" onMouseLeave={() => props.messageFunc(false, error.passwordError)} onMouseEnter={() => props.messageFunc(true, error.passwordError)} />
-                            </div>}
-
-                        {(!error.passwordError && input.password) && <div className="form_message input_success"><BsCheckCircleFill className="form_success_icon" /></div>}
+                        {!input.password ? null :
+                            <InputValidation
+                                error={error.passwordError}
+                                messageType='error'
+                                value={input.password}
+                                messageFunc={props.messageFunc}
+                            />}
                     </div>
                     <Button
-                        buttonName='Enter'
+                        height={40}
+                        buttonName={t("auth.enter")}
                         disabled={!formValid}
                         className='auth_form_button'
                         type='submit'
@@ -176,7 +186,7 @@ export const LoginForm = (props) => {
                     <p className="auth_form_question"
                         onClick={() => props.onFormSwitch('signup')}
                     >
-                        Don't have an account? Sign up
+                        {t("auth.quest_login")}
                     </p>
 
                 </div>

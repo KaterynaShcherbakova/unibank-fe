@@ -1,0 +1,52 @@
+.template {
+    min-width: 280px;
+    min-height: 50px;
+    background-color: #e5ebec;
+    border-radius: 4px;
+    display: flex;
+    /* flex-direction: column; */
+    align-self: center;
+    cursor: pointer;
+    transition: all 0.7s, border 0s;
+    border: 3px solid transparent;
+
+}
+
+.template:hover {
+    transform: scale(1.05);
+    transition: all 0.7s, border 0s;
+}
+.template_userinfo{
+    display: flex;
+    width:100%;
+    height:100%;
+    align-self:flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.template_username {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 1px;
+    align-self: flex-end;
+    margin-bottom: auto;
+    margin-right: 3px;;
+    margin-top:3px;
+    font-size:14px;
+    font-weight: 700;
+
+}
+
+.template_card_icon{
+   margin:auto;
+   margin-left:5%;
+}
+
+.template_money{
+    align-self: flex-end;
+    width:50%;
+    margin-left:auto;
+    font-weight: 100;
+    margin-bottom:1%;
+    font-size:14px;
+
+}

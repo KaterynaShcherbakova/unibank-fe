@@ -1,0 +1,30 @@
+.page_fullname {
+    min-width: 100px;
+    min-height: 50px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left:10px;
+    user-select: none;
+}
+
+.page_name {
+    font-weight: 600;
+    font-family: 'Merriweather';
+    color: #171C27;
+    font-size: 23px;
+    letter-spacing: 2.5px;
+    margin-top: -3px;;
+}
+
+.pagename_icons {
+    margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+.pagename_icons:hover {
+
+    transform: scale(1.1);
+    transition: all 0.7s;
+}

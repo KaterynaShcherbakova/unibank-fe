@@ -1,24 +1,45 @@
-import React from 'react'
-import { Background } from '../basic_components/Background';
-import '../basic_components/Background.css';
-import { CardMenu } from '../complex_components/CardMenu/CardMenu';
-import '../complex_components/CardMenu/CardMenu.css';
-
-import { Header } from '../complex_components/Header/Header';
-import '../complex_components/Header/Header.css';
-
-import { HexagonBox } from '../complex_components/HexagonBox/HexagonBox';
-import '../complex_components/HexagonBox/HexagonBox.css';
+import { React, useState } from 'react'
+import { Background } from '../basic_components/background/Background';
+import { CardMenu } from '../complex_components/card_menu/CardMenu';
+import { HexagonBox } from '../complex_components/hexagon_box/HexagonBox';
+import { ErrorMessage } from '../basic_components/message/ErrorMessage';
+import { cards } from '../App';
 
 
-export const MainPage = () => {
+
+export const MainPage = (props) => {
+    const [currentCardNum, setCurrentCardNum] = useState('');
+    const [currentCard, setCurrentCard] = useState(null);
+
+    const [showMessage, setShowMessage] = useState(false);
+    const [message, setMessage] = useState('');
+    const [messageTheme, setMessageTheme] = useState('');
+
+    const messageFunc = (state, text, theme) => {
+        setShowMessage(state);
+        setMessage(text);
+        setMessageTheme(theme);
+    }
+
+
     return (
         <div className='MainPage'>
             <Background page='main' />
-            <Header user='Kateryna Shcherbakova' />
-            <CardMenu />
+            <ErrorMessage
+                showMessage={showMessage}
+                message={message}
+                messageTheme={messageTheme}
+            />
+            <CardMenu
+                type='cardmenu'
+                cardArray={cards}
+                setCurrentCard={setCurrentCard}
+                currentCard={currentCard}
+                currentCardNum={currentCardNum}
+                setCurrentCardNum={setCurrentCardNum}
+                messageFunc={messageFunc} />
             <HexagonBox />
-           
+
         </div>
     )
 }

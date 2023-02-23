@@ -1,0 +1,52 @@
+.template_block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 15px;
+    height: 83vh;
+    width:320px;
+    background-color: #171C27;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 10px -6px 4px;
+    transform: scale(0.9);
+    border: 1px solid #59A2C4;
+    margin-top:-28px;
+}
+
+.transaction_templates_header{
+    color:white;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: 'Merriweather', serif;
+    font-size:23px;
+    align-self: flex-end;
+    margin-right: 25px;
+    user-select: none;
+
+}
+
+.TemplateBlock{
+    display: flex;
+    gap:15px;
+    flex-direction: column;
+    margin-top:30px;
+    overflow-y: auto;
+    height:100%;
+}
+
+
+.TemplateBlock::-webkit-scrollbar {
+    width: 0.7em;
+    max-height:20px;
+    transition: background-color 1s !important;
+
+}
+
+
+
+.TemplateBlock::-webkit-scrollbar-thumb {
+    background-color: #e5ebec;
+    border-radius: 10px;
+    transition: background-color 1s !important;
+    
+}
